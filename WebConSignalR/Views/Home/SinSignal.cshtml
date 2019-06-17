@@ -1,0 +1,54 @@
+﻿@model WebConSignalR.Comentario
+
+@{
+    ViewBag.Title = "Web sin SignalR";
+}
+<div class="container bg-info">
+    <div class="text-center">
+        <h1>Real Time Communication: SignalR</h1>
+        <p class="lead">Dejanos tu comentario sobre SignalR!</p>
+    </div>
+
+
+    <img src="@Url.Content("~/Images/ilustracion.jpg")" width="200" height="200" alt="imagen ilustrativa" class="center-block" />
+    <div class="row">
+        @if (ViewBag.Comentarios != null)
+        {
+            foreach (var item in @ViewBag.Comentarios)
+            {
+
+                <div class="media well well-sm col-md-8 col-md-offset-2">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="@Url.Content("~/Images/perfil.jpg")"
+                                  width="64" height="64" alt="">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">@item.usuario</h4>
+                        @item.texto
+                    </div>
+                </div>
+            }
+        }
+        </div>
+    <div class="row">
+        <form action="/Home/SinSignal" method="post" class="text-center col-lg-12">
+            <div class="form-group">
+                @Html.LabelFor(d => d.usuario, "Nombre:")
+                @Html.TextBoxFor(d => d.usuario, "", new { @class = "form-control center-block" })
+                @Html.ValidationMessageFor(d => d.usuario, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(d => d.texto, "Escribe tu comentario:")
+                @Html.TextAreaFor(d => d.texto, new { @class = "form-control center-block" })
+                @Html.ValidationMessageFor(d => d.texto, " ", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn btn-default">Comentar</button>
+        </form>
+
+    </div>
+</div>
+

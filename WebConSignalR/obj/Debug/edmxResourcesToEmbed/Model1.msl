@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_signalrModelStoreContainer" CdmEntityContainer="db_signalrEntities1">
+    <EntitySetMapping Name="Comentario">
+      <EntityTypeMapping TypeName="db_signalrModel.Comentario">
+        <MappingFragment StoreEntitySet="Comentario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
